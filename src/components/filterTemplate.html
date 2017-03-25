@@ -1,4 +1,6 @@
-<div ng-repeat="filter in $ctrl.filterArray track by $index" 
-    ng-click="$ctrl.filterSelected(filter)">
-    {{filter}}
-</div>
+<ol class="breadcrumb">
+    <li>Sort By:</li>
+    <li ng-repeat="filter in $ctrl.filterArray track by $index" ng-click="$ctrl.filterSelected(filter)">
+        <a>{{filter}}</a>
+    </li>
+</ol>
