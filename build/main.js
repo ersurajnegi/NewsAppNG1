@@ -77,7 +77,7 @@ angular.module('newsApp')
                 indexChanged: '=',
                 options: '='
             },
-            templateUrl: '/src/templates/selectDirectiveTemplate.html',
+            templateUrl: '../templates/selectDirectiveTemplate.html',
             link: function (scope, $element, attrs) {
                 scope.optionChanged = function (index) {
                     if (scope.indexChanged) {
