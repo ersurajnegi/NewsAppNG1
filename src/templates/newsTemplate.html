@@ -1,6 +1,9 @@
-<my-select data-ng-if="newsCtrl.options.length > 0" options="newsCtrl.options" index-changed="newsCtrl.indexChanged" selected="newsCtrl.selectedOption">
-
-</my-select>
+<div class="row">
+   <div class="col-md-offset-4 col-md-4">
+        <my-select data-ng-if="newsCtrl.options.length > 0" options="newsCtrl.options" index-changed="newsCtrl.indexChanged" selected="newsCtrl.selectedOption">
+    </my-select>
+   </div>
+</div>
 <div style="position:relative;">
     <filter data-ng-if="newsCtrl.selectedSource" test="hello" filter-array="newsCtrl.selectedSource.sortBysAvailable" on-filter-changed="newsCtrl.filterChanged(filter)"></filter>
 </div>
