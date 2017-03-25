@@ -13,3 +13,7 @@
     text-decoration: none;
     cursor: pointer;
 }
+.ng-move,
+.ng-enter{
+  transition:all linear 0.5s;
+}
