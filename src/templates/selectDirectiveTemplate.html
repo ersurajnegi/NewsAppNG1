@@ -1,0 +1,10 @@
+<div class="form-group">
+    <select name="mySelect" class="form-control" data-ng-change="optionChanged()"
+     ng-model="selectedOption">
+        <option value="">--Select News Source--</option>
+        <option data-ng-repeat="option in options track by $index" 
+            value="{{$index}}">
+            {{option.name}}
+        </option>
+        </select>
+</div>
