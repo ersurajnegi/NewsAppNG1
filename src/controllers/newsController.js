@@ -7,6 +7,8 @@ angular.module('newsApp').controller('newsController', ['$scope', 'newsService',
 
     vm.indexChanged = function (index) {
         vm.selectedSource = vm.options[index];
+        vm.articles = null;
+        vm.filter = null;
         vm.getArticles();
     }
 

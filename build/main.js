@@ -68,25 +68,6 @@ angular.module('newsApp')
         articleUrl : "https://newsapi.org/v1/articles",
         apiKey: "cc85f31c0d014a04b807ec14cace3869"
 });
-angular.module('newsApp')
-    .directive('mySelect', function () {
-        return {
-            restrict: 'E',
-            scope: {
-                indexChanged: '=',
-                options: '='
-            },
-            // templateUrl: '../../src/directives/selectTemplate.html',
-            templateUrl: '../../NewsAppNG1/src/directives/selectTemplate.html',
-            link: function (scope, $element, attrs) {
-                scope.optionChanged = function (index) {
-                    if (scope.indexChanged) {
-                        scope.indexChanged(scope.selectedOption);
-                    }
-                }
-            }
-        }
-    });
 angular.module('newsApp').controller('mainController',['$scope',function($scope){
     var vm  = this;
     vm.hello = "Suraj";
@@ -101,6 +82,8 @@ angular.module('newsApp').controller('newsController', ['$scope', 'newsService',
 
     vm.indexChanged = function (index) {
         vm.selectedSource = vm.options[index];
+        vm.articles = null;
+        vm.filter = null;
         vm.getArticles();
     }
 
@@ -131,6 +114,25 @@ angular.module('newsApp').controller('newsController', ['$scope', 'newsService',
 }
 
 ]);
+angular.module('newsApp')
+    .directive('mySelect', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                indexChanged: '=',
+                options: '='
+            },
+          templateUrl: '../../src/directives/selectTemplate.html',
+            //templateUrl: '../../NewsAppNG1/src/directives/selectTemplate.html',
+            link: function (scope, $element, attrs) {
+                scope.optionChanged = function (index) {
+                    if (scope.indexChanged) {
+                        scope.indexChanged(scope.selectedOption);
+                    }
+                }
+            }
+        }
+    });
 angular.module('newsApp')
     .service('newsService', ['$http', '$q', 'ngProgressLite', 'apiConstans', function ($http, $q, ngProgressLite, apiConstans) {
 
